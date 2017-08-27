@@ -18,6 +18,12 @@ DB_PORT=3306
 DB_DATABASE=DBName
 DB_USERNAME=DBuser
 DB_PASSWORD=DBpassword
+
+APP_NAME="Laravel"
+APP_ENV=local
+APP_DEBUG=true
+APP_LOG_LEVEL=debug
+APP_URL=http://voyager.dev
 ```
 
 > import `databases\20170827.sql` into your database 
@@ -28,7 +34,7 @@ composer install
 ```
 
 ```
-ln -s storage/app/public public/storage
+php artisan voyager:install
 php artisan serve
 ```
 
