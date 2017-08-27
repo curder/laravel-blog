@@ -7,3 +7,12 @@
 
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
+.list-group-item > .label {
+  margin-right: 1em;
+}
+
+.links-link > form{
+  display: inline-block;
+  margin-right: 1em;
+  margin-bottom: 10px;
+}

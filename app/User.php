@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'trusted'
     ];
 
     /**
@@ -26,4 +26,32 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    /**
+     * @return bool
+     */
+    public function isTrusted()
+    {
+        return (bool)$this->trusted;
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function votes()
+    {
+        return $this->belongsToMany(Link::class, 'links_votes')
+            ->withTimestamps();
+    }
+
+    /**
+     * @param Link $link
+     *
+     * @return mixed
+     */
+    public function votedFor(Link $link)
+    {
+        return $link->votes->contains('user_id', $this->id);
+    }
 }

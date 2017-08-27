@@ -51,3 +51,5 @@ if (token) {
 //     broadcaster: 'pusher',
 //     key: 'your-pusher-key'
 // });
+$('.alert').not('.alert-import').delay(3000).fadeOut(200);
+$('#flash-overlay-modal').modal();

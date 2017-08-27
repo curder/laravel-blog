@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'zh_cn',
 
     /*
     |--------------------------------------------------------------------------
@@ -168,7 +168,10 @@ return [
          * Package Service Providers...
          */
         Laravel\Tinker\TinkerServiceProvider::class,
-
+        TCG\Voyager\VoyagerServiceProvider::class,
+        YuanChao\Editor\EndaEditorServiceProvider::class,
+        JellyBool\Translug\TranslugServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -226,7 +229,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'EndaEditor' => YuanChao\Editor\Facade\EndaEditorFacade::class,
+        'Translug' => \JellyBool\Translug\TranslugFacade::class,
     ],
 
 ];
