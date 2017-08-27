@@ -8,7 +8,7 @@ git clone git@github.com:curder/laravel-blog.git
 ```
 cp .env.example .env
 
-php artisan key:genrate
+php artisan key:generate
 ```
 and modify the `.env` file with your own config.
 ```
@@ -25,6 +25,10 @@ DB_PASSWORD=DBpassword
 
 ```
 composer install
+```
+
+```
+php artisan serve
 ```
 
 ## Optional
