@@ -1,7 +1,7 @@
 <template>
     <section>
-    <button class="button is-large is-info is-pulled-right" @click="isComponentModalActive = true">
-    Add New</button>
+    <button class="button is-large is-info" @click="isComponentModalActive = true">
+    Add</button>
 
         <b-modal :active.sync="isComponentModalActive" has-modal-card>
             <modal-form v-bind="formProps"></modal-form>

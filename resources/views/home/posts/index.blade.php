@@ -5,11 +5,11 @@
         <div class="hero-body">
             <div class="container">
                 <div class="columns">
-                    <div class="column">
+                    <div class="column is-11">
                         <h1 class="title">Posts</h1>
-                        <h2 class="subtitle">Please keep learning, do not stop ;)</h2>
+                        <h2 class="subtitle">Please keep learning, do not stop!</h2>
                     </div>
-                    <div class="column">
+                    <div class="column is-1">
                         <link-add></link-add>
                     </div>
                 </div>

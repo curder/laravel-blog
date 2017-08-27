@@ -7,7 +7,7 @@
         <div class="hero-body">
             <div class="container">
                 <div class="columns">
-                    <div class="column">
+                    <div class="column is-11">
                         <h1 class="title">
                             <a href="{{ route('links.index') }}">Links</a>
                             @if($category->exists)
