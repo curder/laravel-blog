@@ -5,7 +5,12 @@ git clone git@github.com:curder/laravel-blog.git
 ```
 
 ## Configure
+```
+cp .env.example .env
 
+php artisan key:genrate
+```
+and modify the `.env` file with your own config.
 ```
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -19,8 +24,6 @@ DB_PASSWORD=DBpassword
 > and the manager URL is `/admin`
 
 ```
-cp .env.example .env
-php artisan key:genrate
 composer install
 ```
 
