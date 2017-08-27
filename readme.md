@@ -28,8 +28,12 @@ composer install
 ```
 
 ```
+ln -s storage/app/public public/storage
 php artisan serve
 ```
+
+UserName: `admin@admin.com`
+Password: `admin`
 
 ## Optional
 
