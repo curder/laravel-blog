@@ -13,15 +13,19 @@
 
 // Home Routers.
 
-//Route::get('/', 'PostsController@index');
+Route::get('/', function () {
+    return view('home.welcome');
+});
 
 Route::group(['namespace' => 'Home'], function () {
-    Route::post('votes/{link}','VotesController@store')->name('votes.store'); // 点赞、取消点赞
+    Auth::routes();
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::post('votes/{link}', 'VotesController@store')->name('votes.store'); // 点赞、取消点赞
     Route::get('links', 'LinksController@index')->name('links.index'); // 首页
     Route::post('links', 'LinksController@store')->name('links.store'); // 添加操作
     Route::get('links/{category}', 'LinksController@index')->name('links.category');// 频道筛选页
-});
 
+});
 
 // Admin Routers.
 Route::group(['prefix' => 'admin'], function () {
