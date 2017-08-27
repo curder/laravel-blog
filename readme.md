@@ -39,7 +39,7 @@ php artisan serve
 ```
 
 UserName: `admin@admin.com`
-Password: `admin`
+Password: `password`
 
 ## Optional
 
