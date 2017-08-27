@@ -16,7 +16,7 @@
                    target="_blank"><i class="fa fa-github"></i></a>
             </p>
             <p>
-                <a href="https://laravelvoyager.com/"><strong>Bluma</strong></a>
+                <a href="http://bulma.io/"><strong>Bluma</strong></a>
                 <small>A modern CSS framework based on Flexbox.</small>
                 <a class="icon"
                    href="https://github.com/jgthms/bulma"
