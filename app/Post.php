@@ -11,4 +11,9 @@ class Post extends baseModel
             $post->slug = translug($post->title);
         });
     }
+
+    public function categoryId()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
