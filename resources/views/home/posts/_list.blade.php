@@ -6,10 +6,10 @@
             </figure>
         </div>
         <div class="card-content">
-            <h5 class="title is-4">Laravel 5.5 Responsable Interface for ResponsesLaravel 5.5 Responsable Interface for Responses
-            </h5>
+            <h5 class="title is-4">{{ $post->title }}</h5>
 
-            <a href="#" class="tag is-success">PHP</a> <small>11:09 PM - 1 Jan 2016</small>
+            <a href="#" class="tag is-success">PHP</a>
+            <small>{{ $post->created_at }}</small>
         </div>
     </div>
 </div>

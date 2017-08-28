@@ -43,29 +43,30 @@
 
     <div class="container">
         <div class="columns">
-            @include('home._includes._posts._list_detail')
-            @include('home._includes._posts._list_detail')
-            @include('home._includes._posts._list_detail')
+            @foreach($post->take(3) as $post)
+                @include('home.posts._list',['post'=>$post])
+            @endforeach
+        </div>
+
+        <div class="columns">
+            @include('home.posts._list')
+            @include('home.posts._list')
+            @include('home.posts._list')
         </div>
         <div class="columns">
-            @include('home._includes._posts._list_detail')
-            @include('home._includes._posts._list_detail')
-            @include('home._includes._posts._list_detail')
+            @include('home.posts._list')
+            @include('home.posts._list')
+            @include('home.posts._list')
         </div>
         <div class="columns">
-            @include('home._includes._posts._list_detail')
-            @include('home._includes._posts._list_detail')
-            @include('home._includes._posts._list_detail')
+            @include('home.posts._list')
+            @include('home.posts._list')
+            @include('home.posts._list')
         </div>
         <div class="columns">
-            @include('home._includes._posts._list_detail')
-            @include('home._includes._posts._list_detail')
-            @include('home._includes._posts._list_detail')
-        </div>
-        <div class="columns">
-            @include('home._includes._posts._list_detail')
-            @include('home._includes._posts._list_detail')
-            @include('home._includes._posts._list_detail')
+            @include('home.posts._list')
+            @include('home.posts._list')
+            @include('home.posts._list')
         </div>
     </div>
 @endsection
