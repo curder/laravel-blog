@@ -8,16 +8,16 @@ class LinksQuery
 {
     /**
      * @param $sortByPopular
-     * @param $channel
+     * @param $category
      * @return mixed
      */
-    public function get($sortByPopular, $channel)
+    public function get($sortByPopular, $category)
     {
         $orderBy = $sortByPopular ? 'votes_count' : 'updated_at';
 
         return Link::with(['categoryId', 'authorId'])
             ->withCount('votes')
-            ->forChannel($channel)
+            ->forChannel($category)
             ->where('approved', 1)
             ->groupBy('links.id')
             ->orderBy($orderBy, 'desc')

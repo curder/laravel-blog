@@ -19,10 +19,24 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
+import Form from './utilities/Form';
+
 window.axios = require('axios');
+window.Form = Form;
+window.Vue = require('vue');
+
+import Buefy from "buefy";
+
+Vue.use(Buefy);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-
+window.axios.defaults.headers.common['Authorization'] = Laravel.apiToken;
+// Vue.http.interceptors.push((request, next) => {
+//     request.headers.set('X-CSRF-TOKEN', Laravel.csrfToken);
+//     request.headers.set('Authorization', Laravel.apiToken);
+//
+//     next();
+// });
 /**
  * Next we will register the CSRF Token as a common header with Axios so that
  * all outgoing HTTP requests automatically have it attached. This is just

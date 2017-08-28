@@ -22,7 +22,7 @@ Route::group(['namespace' => 'Home'], function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::post('votes/{link}', 'VotesController@store')->name('votes.store'); // 点赞、取消点赞
     Route::get('links', 'LinksController@index')->name('links.index'); // 外链列表
-    Route::get('links/{category}', 'LinksController@index')->name('links.category');// 外链分类
+    Route::get('links/{category?}', 'LinksController@index')->name('links.category');// 外链分类
     Route::post('links', 'LinksController@store')->name('links.store'); // 添加操作
 
     Route::get('posts', 'PostsController@index')->name('posts.index'); // 文章列表

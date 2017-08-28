@@ -4,8 +4,9 @@ namespace App\Http\Requests;
 
 use App\Link;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
-class LinkRequestForm extends FormRequest
+class LinkCreateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,7 +28,8 @@ class LinkRequestForm extends FormRequest
         return [
             'category_id' => 'required|exists:categories,id',
             'name' => 'required',
-            'url' => 'required|active_url', // |unique:community_links
+            'url' => 'required|active_url|max:120', // |unique:community_links
+            'description' => 'sometimes|max:200',
         ];
     }
 
@@ -36,10 +38,11 @@ class LinkRequestForm extends FormRequest
      *
      * @throws \App\Exceptions\LinkAlreadySubmitted
      */
-    public function persist()
+    public function persist($user)
     {
+
         Link::from(
-            auth()->user()
+           $user
         )->contribute($this->all());
     }
 }

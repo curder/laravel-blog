@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Home;
 use App\Category;
 use App\Exceptions\LinkAlreadySubmitted;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\LinkRequestForm;
+use App\Http\Requests\LinkCreateRequest;
 use App\Queries\LinksQuery;
 
 class LinksController extends Controller
@@ -22,7 +22,7 @@ class LinksController extends Controller
         return view('home.links.index', compact('links', 'categories', 'category'));
     }
 
-    public function store(LinkRequestForm $form)
+    public function store(LinkCreateRequest $form)
     {
         try {
             $form->persist();

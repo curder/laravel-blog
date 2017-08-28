@@ -2,8 +2,8 @@
 
 namespace App;
 
-use Auth;
 use App\Exceptions\LinkAlreadySubmitted;
+use Auth;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use TCG\Voyager\Facades\Voyager;
@@ -15,7 +15,7 @@ class Link extends Model
     use Translatable;
 
     const APPROVED = 1;
-    protected $guarded = [];
+    protected $fillable = ['category_id', 'name', 'url', 'description'];
 
     protected $translatable = ['category_id', 'description', 'name'];
 
@@ -75,7 +75,7 @@ class Link extends Model
      */
     public function scopeForChannel($builder, $category)
     {
-        if ($category->id) {
+        if (!is_null($category->id)) {
             return $builder->where('category_id', $category->id);
         }
         return $builder;
