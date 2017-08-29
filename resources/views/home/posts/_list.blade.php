@@ -2,13 +2,13 @@
     <div class="card">
         <div class="card-image">
             <figure class="image">
-                <img src="http://bulma.io/images/placeholders/1280x960.png" alt="blog images">
+                <a href="{{ $post->url() }}"><img
+                            src="{{ $post->cover() }}" alt="blog images"></a>
             </figure>
         </div>
         <div class="card-content">
-            <h5 class="title is-4">{{ $post->title }}</h5>
-
-            <a href="#" class="tag is-success">PHP</a>
+            <h5 class="title is-6">{{ $post->title }}</h5>
+            <a href="{{ $post->url() }}" class="tag is-success">{{ $post->categoryId->name }}</a>
             <small>{{ $post->created_at }}</small>
         </div>
     </div>

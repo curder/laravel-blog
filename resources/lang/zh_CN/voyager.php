@@ -195,11 +195,11 @@ return [
         'details' => '文章详细信息',
         'excerpt' => '文章摘要 <small>对该篇文章的简短描述</small>',
         'image' => '文章图片',
-        'meta_description' => 'Meta Description',
-        'meta_keywords' => 'Meta Keywords',
+        'meta_description' => 'SEO描述',
+        'meta_keywords' => 'SEO关键字',
         'new' => '创建新文章',
-        'seo_content' => 'SEO Content',
-        'seo_title' => 'Seo Title',
+        'seo_content' => 'SEO 信息',
+        'seo_title' => 'Seo 标题',
         'slug' => 'URL Slug',
         'status' => '发布状态',
         'status_draft' => '草稿',
@@ -366,5 +366,12 @@ return [
         'symlink_missing_text' => '我们找不到一个存储软连接，这可能会导致' .
             '从浏览器加载媒体文件的问题。',
         'symlink_missing_title' => '失踪的存储软连接',
+    ],
+    'user' => [
+        'name' => '用户名',
+        'email' => '用户邮箱',
+        'created_at' => '创建时间',
+        'avatar' => '头像',
+        'role'=>'角色',
     ],
 ];

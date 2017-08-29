@@ -9,14 +9,16 @@ class PostsController extends Controller
 {
     public function index()
     {
-        $post = Post::with('category')->paginate();
+        $posts = Post::with('category')->published()->simplePaginate(9);
 
-        return view('home.posts.index', compact('post'));
+        return view('home.posts.index', compact('posts'));
     }
 
     public function show($slug)
     {
-        $post = Post::where('slug', $slug)->first();
+        $post = Post::where('slug', $slug)->published()->first();
+
+
         return view('home.posts.show', compact('post'));
     }
 }

@@ -1,8 +1,18 @@
-.links{
-     button {
-         margin-right: 1em;
-     }
-     form {
-       display: inline-block;
-   }
+body {
+  overflow-x: hidden;
+}
+
+.links {
+  button {
+    margin-right: 1em;
+  }
+  form {
+    display: inline-block;
+  }
+}
+
+.post-lists {
+  .card {
+    height: 100%;
+  }
 }

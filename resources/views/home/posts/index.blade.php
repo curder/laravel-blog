@@ -1,13 +1,6 @@
 @extends('home.layouts.app')
 @section('page_title','Posts')
-@section('style')
-    <style>
-        body{
 
-            overflow-x: hidden ;
-        }
-    </style>
-@endsection
 @section('banner')
     <div class="hero is-primary">
         <div class="hero-body">
@@ -47,35 +40,17 @@
         </div>
     </nav>
 
-    <div class="container">
-        <div class="columns">
-            @foreach($post->take(3) as $post)
-                @include('home.posts._list',['post'=>$post])
-            @endforeach
-        </div>
+    <div class="container post-lists m-t-30">
+        @foreach($posts->chunk(3) as $post)
+            <div class="columns">
+                @foreach($post->take(3) as $p)
+                    @include('home.posts._list',['post' => $p])
+                @endforeach
+            </div>
+        @endforeach
 
-        <div class="columns">
-            @include('home.posts._list')
-            @include('home.posts._list')
-            @include('home.posts._list')
-            @include('home.posts._list')
-            @include('home.posts._list')
-            @include('home.posts._list')
-        </div>
-        <div class="columns">
-            @include('home.posts._list')
-            @include('home.posts._list')
-            @include('home.posts._list')
-        </div>
-        <div class="columns">
-            @include('home.posts._list')
-            @include('home.posts._list')
-            @include('home.posts._list')
-        </div>
-        <div class="columns">
-            @include('home.posts._list')
-            @include('home.posts._list')
-            @include('home.posts._list')
-        </div>
+        @if(method_exists($posts ,'links'))
+            {{ $posts->links('vendor.pagination.simple-bulma')}}
+        @endif
     </div>
 @endsection

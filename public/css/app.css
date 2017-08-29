@@ -15407,12 +15407,20 @@ label.panel-block:hover {
   background: rgba(255, 56, 96, 0.05);
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .links button {
   margin-right: 1em;
 }
 
 .links form {
   display: inline-block;
+}
+
+.post-lists .card {
+  height: 100%;
 }
 
 .m-t-5 {

@@ -7,7 +7,7 @@
         <i class="voyager-news"></i> {{ $dataType->display_name_plural }}
         @if (Voyager::can('add_'.$dataType->name))
             <a href="{{ route('voyager.'.$dataType->slug.'.create') }}" class="btn btn-success">
-                <i class="voyager-plus"></i> Add New
+                <i class="voyager-plus"></i> @lang('voyager.generic.add')
             </a>
         @endif
     </h1>
@@ -32,7 +32,7 @@
                             </thead>
                             <tbody>
                                 @foreach($dataTypeContent as $data)
-                                <tr>
+                                <tr class="{{ $data->Status2Class($data->status) }}">
                                     @foreach($dataType->browseRows as $row)
                                     <td>
                                         @if($row->type == 'image')
