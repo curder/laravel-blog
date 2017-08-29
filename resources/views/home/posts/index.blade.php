@@ -1,17 +1,23 @@
 @extends('home.layouts.app')
 @section('page_title','Posts')
+@section('style')
+    <style>
+        body{
+
+            overflow-x: hidden ;
+        }
+    </style>
+@endsection
 @section('banner')
     <div class="hero is-primary">
         <div class="hero-body">
             <div class="container">
                 <div class="columns">
-                    <div class="column is-11">
+                    <div class="column">
                         <h1 class="title">Posts</h1>
                         <h2 class="subtitle">Please keep learning, do not stop!</h2>
                     </div>
-                    <div class="column is-1">
-                        <link-add></link-add>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -49,6 +55,9 @@
         </div>
 
         <div class="columns">
+            @include('home.posts._list')
+            @include('home.posts._list')
+            @include('home.posts._list')
             @include('home.posts._list')
             @include('home.posts._list')
             @include('home.posts._list')

@@ -40,6 +40,5 @@
 <style>
     .editor {
         width: {{ config('editor.width') }};
-        z-index: 10000;
     }
 </style>
