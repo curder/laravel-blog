@@ -26,7 +26,9 @@ window.Form = Form;
 window.Vue = require('vue');
 
 import Buefy from "buefy";
+import InstantSearch from 'vue-instantsearch';
 
+Vue.use(InstantSearch);
 Vue.use(Buefy);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';

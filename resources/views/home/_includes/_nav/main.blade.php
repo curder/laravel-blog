@@ -49,16 +49,20 @@
                 <a class="navbar-item" href="/links">Links</a>
                 <a class="navbar-item" href="/pages">Pages</a>
 
-                <div class="level-item">
-                    <div class="field has-addons">
-                        <p class="control">
-                            <input class="input" type="text" placeholder="keywords">
-                        </p>
-                        <p class="control">
-                            <button class="button">Search</button>
-                        </p>
+                @section('search')
+                    <div class="level-item">
+                        <form action="{{route('search')}}">
+                            <div class="field has-addons">
+                                <p class="control">
+                                    <input class="input" type="text" name="keyword" placeholder="keywords">
+                                </p>
+                                <p class="control">
+                                    <button class="button">Search</button>
+                                </p>
+                            </div>
+                        </form>
                     </div>
-                </div>
+                @show
             </div>
 
             <div class="navbar-end">

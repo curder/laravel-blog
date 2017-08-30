@@ -17,6 +17,6 @@ class SearchController extends Controller
 
 
 
-         return view('home.search.index');
+         return view('home.search.index',compact('keyword'));
     }
 }

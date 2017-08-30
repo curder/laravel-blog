@@ -13,9 +13,31 @@ class Post extends baseModel
 
     protected static function boot()
     {
+        static::bootSearchable();
+
         static::creating(function ($post) {
             $post->slug = translug($post->title);
         });
+    }
+
+    /**
+     * @return bool|array
+     */
+    public function toSearchableArray()
+    {
+
+        $this->categoryId;
+        $array = $this->toArray();
+
+
+        $array['url'] = $this->url();
+        $array['category_url'] = $this->categoryId->postUrl();
+
+        // 只允许提交"已发布"的文章到algolia
+        if ($array['status'] != self::PUBLISHED) {
+            return false;
+        }
+        return $array;
     }
 
     /**
@@ -29,7 +51,7 @@ class Post extends baseModel
     /**
      * 获取分类下的数据
      *
-     * @param Builder $builder
+     * @param Builder  $builder
      * @param Category $category
      *
      * @return mixed
@@ -52,6 +74,7 @@ class Post extends baseModel
 
     /**
      * @param $class
+     *
      * @return mixed|string
      */
     public function Status2Class($class)
@@ -67,6 +90,7 @@ class Post extends baseModel
 
     /**
      * posts URLs.
+     *
      * @return string
      */
     public function url()
