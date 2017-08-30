@@ -3,11 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Builder;
+use Laravel\Scout\Searchable;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Models\Post as baseModel;
 
 class Post extends baseModel
 {
+    use Searchable;
+
     protected static function boot()
     {
         static::creating(function ($post) {
