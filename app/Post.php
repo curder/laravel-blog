@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Builder;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Models\Post as baseModel;
 
@@ -20,6 +21,30 @@ class Post extends baseModel
     public function categoryId()
     {
         return $this->hasOne(Category::class, 'id', 'category_id');
+    }
+
+    /**
+     * 获取分类下的数据
+     *
+     * @param Builder $builder
+     * @param Category $category
+     *
+     * @return mixed
+     */
+    public function scopeForCategory($builder, $category)
+    {
+        if (!is_null($category->id)) {
+            return $builder->where('category_id', $category->id);
+        }
+        return $builder;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function incr()
+    {
+        return $this->increment('views');
     }
 
     /**
@@ -64,6 +89,7 @@ class Post extends baseModel
     {
         return static::where('id', '<', $this->id)
             ->where('category_id', '=', $this->category_id)
+            ->published()
             ->orderBy('id')->first();
     }
 
@@ -76,6 +102,7 @@ class Post extends baseModel
     {
         return static::where('id', '>', $this->id)
             ->where('category_id', '=', $this->category_id)
+            ->published()
             ->orderBy('id')->first();
     }
 

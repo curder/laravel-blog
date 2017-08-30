@@ -2,8 +2,7 @@
 @section('page_title',$post->title)
 
 @section('content')
-    <div class="container m-t-50">
-
+    <article class="container m-t-50 article">
         <div class="card">
             <div class="card-image">
                 <figure class="image">
@@ -23,63 +22,31 @@
                     </div>
                 </div>--}}
 
-                <div class="content m-t-50 m-r-20 m-b-20 m-l-20">
-                    {!! EndaEditor::MarkDecode($post->body) !!} <a>@bulmaio</a>.
-                    <a>#css</a> <a>#responsive</a>
-                    <br>
-                    <small>11:09 PM - 1 Jan 2016</small>
-                </div>
-            </div>
-        </div>
+            <section class="content m-t-50 m-r-20 m-b-20 m-l-20">
+                {!! EndaEditor::MarkDecode($post->body) !!}
+                <hr>
 
-    </div>
-    <div class="col-md-10 col-sm-offset-1">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <article class="article">
-                    <header>
-                        <h1>{{ $post->name }}</h1>
-                        <dl class="dl-inline">
-                            <dt><i class="glyphicon glyphicon-time"></i></dt>
-                            <dd>{{ $post->created_at }}&nbsp;&nbsp;</dd>
-                            <dd><a href="{{ route('posts.category' , $post->categoryId) }}"
-                                   class="label label-success">{{ $post->categoryId->name }}</a></dd>
-                            <dd class="pull-right">
-                                <span class="label label-info">
-                                    <i class="glyphicon glyphicon-eye-open"></i> {{ $post->views }}
-                                </span>
-                            </dd>
-                        </dl>
-                        <section class="abstract">
-                            <p><strong>摘要：</strong>{{ $post->description }}</p>
-                        </section>
-                    </header>
-                    <section class="content">
-                        {!! EndaEditor::MarkDecode($post->body) !!}
-                    </section>
-                    <nav>
-                        <ul class="pager pager-justify">
-                            @if($post->prev())
-                                <li class="previous">
-                                    <a href="{{  $post->prev()->url() }}"><span
-                                                aria-hidden="true">&larr;</span>
-                                        上一篇</a>
-                                </li>
-                            @endif
-                            @if($post->next())
-                                <li class="next">
-                                    <a href="{{ $post->next()->url() }}">下一篇 <span
-                                                aria-hidden="true">&rarr;</span></a>
-                                </li>
-                            @else
-                                <li class="next disabled">
-                                    <a href="#">没有下一篇</a>
-                                </li>
-                            @endif
-                        </ul>
+                <div class="description">
+                    <a href="#">{{ $post->categoryId->name }}</a>
+                    <small>{{ $post->created_at }}</small>
+                </div>
+
+                <div class="p-t-20 p-b-20">
+                    <nav class="pagination" role="navigation" aria-label="pagination">
+                        @if($post->prev())
+                            <a href="{{  $post->prev()->url() }}" class="pagination-previous"><span aria-hidden="true">&larr;</span>
+                                上一篇</a>
+                        @else
+                            <a class="pagination-previous" title="This is the first page" disabled>没有了</a>
+                        @endif
+                        @if($post->next())
+                            <a href="{{ $post->next()->url() }}" class="pagination-next">下一篇 <span aria-hidden="true">&rarr;</span></a>
+                        @else
+                            <a class="pagination-next" disabled>没有了</a>
+                        @endif
                     </nav>
-                </article>
-            </div>
+                </div>
+            </section>
         </div>
-    </div>
+    </article>
 @endsection

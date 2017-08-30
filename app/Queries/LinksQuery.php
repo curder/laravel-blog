@@ -17,7 +17,7 @@ class LinksQuery
 
         return Link::with(['categoryId', 'authorId'])
             ->withCount('votes')
-            ->forChannel($category)
+            ->forCategory($category)
             ->where('approved', 1)
             ->groupBy('links.id')
             ->orderBy($orderBy, 'desc')

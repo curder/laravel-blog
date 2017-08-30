@@ -173,6 +173,9 @@ return [
         YuanChao\Editor\EndaEditorServiceProvider::class,
         JellyBool\Translug\TranslugServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -232,6 +235,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'EndaEditor' => YuanChao\Editor\Facade\EndaEditorFacade::class,
         'Translug' => \JellyBool\Translug\TranslugFacade::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];

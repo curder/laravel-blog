@@ -69,11 +69,11 @@ class Link extends Model
      * 获取分类下的数据
      *
      * @param Builder $builder
-     * @param Channel $category
+     * @param Category $category
      *
      * @return mixed
      */
-    public function scopeForChannel($builder, $category)
+    public function scopeForCategory($builder, $category)
     {
         if (!is_null($category->id)) {
             return $builder->where('category_id', $category->id);

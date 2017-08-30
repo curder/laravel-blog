@@ -4,18 +4,12 @@
             <a class="navbar-item" href="{{ url('/') }}">
                 <img src="images/blog_logo.png" alt="{{ Voyager::setting('admin_title') }}" width="112" height="28">
             </a>
-
             <a class="navbar-item is-hidden-desktop" href="{{ url('/') }}" target="_blank">
-      <span class="icon" style="color: #333;">
-        <i class="fa fa-github"></i>
-      </span>
+                <span class="icon" style="color: #333;"><i class="fa fa-github"></i></span>
             </a>
             <a class="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
-      <span class="icon" style="color: #55acee;">
-        <i class="fa fa-twitter"></i>
-      </span>
+                <span class="icon" style="color: #55acee;"><i class="fa fa-twitter"></i></span>
             </a>
-
             <div class="navbar-burger burger" data-target="navMenuIndex">
                 <span></span>
                 <span></span>
@@ -30,7 +24,6 @@
                         Docs
                     </a>
                     <div class="navbar-dropdown is-boxed">
-
                         <a class="navbar-item" href="#">
                             Layout
                         </a>
@@ -55,6 +48,17 @@
                 <a class="navbar-item" href="/posts">Posts</a>
                 <a class="navbar-item" href="/links">Links</a>
                 <a class="navbar-item" href="/pages">Pages</a>
+
+                <div class="level-item">
+                    <div class="field has-addons">
+                        <p class="control">
+                            <input class="input" type="text" placeholder="keywords">
+                        </p>
+                        <p class="control">
+                            <button class="button">Search</button>
+                        </p>
+                    </div>
+                </div>
             </div>
 
             <div class="navbar-end">

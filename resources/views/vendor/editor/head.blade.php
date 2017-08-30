@@ -1,6 +1,6 @@
 {{--<link href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.css" rel="stylesheet">--}}
 <link rel="stylesheet" href="http://cdn.bootcss.com/codemirror/4.10.0/codemirror.min.css">
-{{--<link rel="stylesheet" href="http://cdn.bootcss.com/highlight.js/8.4/styles/default.min.css">--}}
+<link rel="stylesheet" href="http://cdn.bootcss.com/highlight.js/8.4/styles/default.min.css">
 {{--<script src="http://cdn.bootcss.com/highlight.js/8.4/highlight.min.js"></script>--}}
 {{--<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.js"></script>--}}
 <script src="http://cdn.bootcss.com/marked/0.3.2/marked.min.js"></script>
@@ -40,5 +40,6 @@
 <style>
     .editor {
         width: {{ config('editor.width') }};
+        margin-bottom: 40px;
     }
 </style>

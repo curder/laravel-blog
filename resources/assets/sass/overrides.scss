@@ -16,3 +16,60 @@ body {
     height: 100%;
   }
 }
+
+/*文章详情*/
+.article {
+  font-size: 16px;
+  font-family: "Maven Pro,Microsoft YaHei,sans-serif!important";
+  line-height: 26px;
+
+  code, kbd, pre, samp {
+    font-size: 14px;
+    padding-left:0.25rem;
+  }
+
+  section {
+    h1 {
+      font-size: 2em;
+    }
+
+    h2 {
+      font-size: 1.8em;
+    }
+
+    h3 {
+      font-size: 1.6em;
+    }
+
+    h4 {
+      font-size: 1.4em;
+    }
+
+    h5 {
+      font-size: 1.2em;
+    }
+    h1, h2, h3, h4, h5 {
+      margin: 20px -15px 10px;
+      padding: 9px 20px;
+      border-bottom: 1px dashed #E1E1E1;
+    }
+    p {
+      margin-bottom: 6px;
+    }
+    ul {
+      //padding-left: 20px;
+    }
+    img {
+      border: 1px solid #ddd;
+      box-shadow: 0 0 30px #ccc;
+      -moz-box-shadow: 0 0 30px #ccc;
+      -webkit-box-shadow: 0 0 30px #ccc;
+      margin-bottom: 20px;
+      margin-top: 10px;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+}
+

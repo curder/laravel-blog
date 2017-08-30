@@ -27,11 +27,14 @@ Route::group(['namespace' => 'Home'], function () {
 
     Route::get('posts', 'PostsController@index')->name('posts.index'); // 文章列表
     Route::get('posts/{slug}', 'PostsController@show')->name('posts.show'); // 文章详情
-    Route::get('posts/{category?}/lists', 'PostsController@index')->name('posts.category'); // 分类下的文章
+    Route::get('posts/{category}/list', 'PostsController@index')->name('posts.category'); // 分类下的文章
+
+    Route::get('search','SearchController@index')->name('search');
 
 });
 
 // Admin Routers.
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+    Route::post('editor/upload','Admin\VoyagerMediaController@editorUpload')->name('editor.upload');
 });
