@@ -153,8 +153,8 @@
                 </div>
                 <div class="col-md-4">
                     <button type="submit" class="btn btn-primary btn-block">
-
-                        @if(isset($dataTypeContent->id)) @lang('voyager.post.update') @else <i class="icon wb-plus-circle"></i>
+                        @if(isset($dataTypeContent->id)) @lang('voyager.post.update') @else <i
+                                class="icon wb-plus-circle"></i>
                         Create New Post  @endif
                     </button>
                     <!-- ### DETAILS ### -->
@@ -167,17 +167,16 @@
                             </div>
                         </div>
                         <div class="panel-body">
-                            {{--<div class="form-group">--}}
-                            {{--<label for="name">URL slug</label>--}}
-                            {{--@include('voyager::multilingual.input-hidden', [--}}
-                            {{--'_field_name'  => 'slug',--}}
-                            {{--'_field_trans' => get_field_translations($dataTypeContent, 'slug')--}}
-                            {{--])--}}
-                            {{--<input type="text" class="form-control" id="slug" name="slug"--}}
-                            {{--placeholder="slug"--}}
-                            {{--{{!! isFieldSlugAutoGenerator($dataType, $dataTypeContent, "slug") !!}}--}}
-                            {{--value="@if(isset($dataTypeContent->slug)){{ $dataTypeContent->slug }}@endif">--}}
-                            {{--</div>--}}
+                            <div class="form-group">
+                                <label for="tags">Tags</label>
+                                <input type="text"
+                                       class="form-control"
+                                       id="tags"
+                                       name="tags"
+                                       placeholder="slug"
+                                       value="{{ $dataTypeContent->tagList }}">
+                            </div>
+
                             <div class="form-group">
                                 <label for="name">@lang('voyager.post.status')</label>
                                 <select class="form-control" name="status">
@@ -282,6 +281,47 @@
             @if ($isModelTranslatable)
                 $('.side-body').multilingual({"editing": true});
             @endif
+
+            // tag
+            function formateTopic(topic) {
+                return "<div class='select2-result-repository clearfix'>" +
+                "<div class='select2-result-repository__meta'>" +
+                "<div class='select2-result-repository__title'>" +
+                topic.name ? topic.name : "Laravel" +
+                    "</div></div></div>";
+            }
+
+            function formatTopicSelection(topic) {
+                return topic.name || topic.text;
+            }
+
+            $(".js-example-basic-multiple").select2({
+                tags: true,
+                placeholder: '选择相关话题',
+                minimumInputLength: 2,
+                ajax: {
+                    url: '/api/topics',
+                    dataType: 'json',
+                    delay: 250,
+                    data: function (params) {
+                        return {
+                            q: params.term
+                        };
+                    },
+                    processResults: function (data, params) {
+                        return {
+                            results: data
+                        };
+                    },
+                    cache: true
+                },
+                templateResult: formateTopic,
+                templateSelection: formatTopicSelection,
+                escapeMarkup: function (markup) {
+                    return markup;
+                }
+            });
+
         });
     </script>
     @if($isModelTranslatable)

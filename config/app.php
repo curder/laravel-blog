@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'PRC',
 
     /*
     |--------------------------------------------------------------------------
@@ -176,7 +176,7 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Laravel\Scout\ScoutServiceProvider::class,
-
+        Cviebrock\EloquentTaggable\ServiceProvider::class,
         /*
          * Application Service Providers...
          */

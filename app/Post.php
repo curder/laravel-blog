@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Cviebrock\EloquentTaggable\Taggable;
 use Illuminate\Database\Eloquent\Builder;
 use Laravel\Scout\Searchable;
 use TCG\Voyager\Facades\Voyager;
@@ -9,7 +10,7 @@ use TCG\Voyager\Models\Post as baseModel;
 
 class Post extends baseModel
 {
-    use Searchable;
+    use Searchable, Taggable;
 
     protected static function boot()
     {
@@ -17,6 +18,11 @@ class Post extends baseModel
 
         static::creating(function ($post) {
             $post->slug = translug($post->title);
+        });
+        static::saving(function ($post) {
+            if (request()->get('tags')) {
+                $post->retag(request()->get('tags'));
+            }
         });
     }
 
@@ -51,7 +57,7 @@ class Post extends baseModel
     /**
      * 获取分类下的数据
      *
-     * @param Builder  $builder
+     * @param Builder $builder
      * @param Category $category
      *
      * @return mixed

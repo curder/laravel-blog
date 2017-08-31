@@ -20,4 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['namespace' => 'Api'], function () {
     Route::get('categories', 'CategoriesController@index');
     Route::post('links','LinksController@store')->middleware("auth:api");
+    Route::get('tags','TagsController@index'); // 标签列表查询
 });
