@@ -15439,6 +15439,11 @@ body {
   padding-left: 0.25rem;
 }
 
+.article section {
+  word-wrap: break-word;
+  word-break: normal;
+}
+
 .article section h1 {
   font-size: 2em;
 }

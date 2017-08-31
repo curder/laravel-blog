@@ -80,7 +80,7 @@
                             </a>
 
                             <hr class="navbar-divider">
-                            <a href="{{route('logout')}}"
+                            <a class="navbar-item" href="{{route('logout')}}"
                                onclick="event.preventDefault();
                      document.getElementById('logout-form').submit();"><span class="icon"><i
                                             class="fa fa-fw fa-sign-out m-r-5"></i></span>Logout</a>

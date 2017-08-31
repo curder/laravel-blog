@@ -29,6 +29,9 @@ body {
   }
 
   section {
+    word-wrap: break-word;
+    word-break: normal;
+
     h1 {
       font-size: 2em;
     }
@@ -70,6 +73,5 @@ body {
       height: auto;
     }
   }
-
 }
 

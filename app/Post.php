@@ -29,7 +29,7 @@ class Post extends baseModel
         $this->categoryId;
         $array = $this->toArray();
 
-
+        $array['cover'] = $this->cover();
         $array['url'] = $this->url();
         $array['category_url'] = $this->categoryId->postUrl();
 
@@ -69,6 +69,7 @@ class Post extends baseModel
      */
     public function incr()
     {
+        $this->timestamps = false; // 禁止更新时间戳
         return $this->increment('views');
     }
 
