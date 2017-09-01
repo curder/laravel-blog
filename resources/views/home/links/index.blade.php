@@ -14,7 +14,9 @@
                                 <small>&mdash; {{ $category->name }}</small>
                             @endif
                         </h1>
-                        <h2 class="subtitle">Please keep learning, do not stop ;)</h2>
+                        <h2 class="subtitle">
+                            Please keep learning, do not stop!
+                        </h2>
                     </div>
                     @if(Voyager::can('home.links.store'))
                         <div class="column level-right">

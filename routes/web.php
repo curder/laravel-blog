@@ -25,7 +25,7 @@ Route::group(['namespace' => 'Home'], function () {
     Route::get('links/{category?}', 'LinksController@index')->name('links.category');// 外链分类
     Route::post('links', 'LinksController@store')->name('links.store'); // 添加操作
 
-    Route::get('posts', 'PostsController@index')->name('posts.index'); // 文章列表
+    Route::get('/', 'PostsController@index')->name('posts.index'); // 文章列表
     Route::get('posts/{slug}', 'PostsController@show')->name('posts.show'); // 文章详情
     Route::get('posts/{category}/list', 'PostsController@index')->name('posts.category'); // 分类下的文章
 

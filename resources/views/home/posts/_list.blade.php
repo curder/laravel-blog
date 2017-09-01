@@ -8,6 +8,9 @@
         </div>
         <div class="card-content">
             <h5 class="title is-6">{{ $post->title }}</h5>
+            <p>
+                {{ $post->excerpt }}
+            </p>
             <a href="{{ $post->categoryId->postUrl() }}" class="tag is-success">{{ $post->categoryId->name }}</a>
             <small>{{ $post->created_at }}</small> {{ $post->views }}
         </div>

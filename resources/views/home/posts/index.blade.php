@@ -14,7 +14,13 @@
                             @endif
                         </h1>
 
-                        <h2 class="subtitle">Please keep learning, do not stop!</h2>
+                        <h2 class="subtitle">
+                            @if($category->exists)
+                                {!! $category->description !!}
+                            @else
+                                Please keep learning, do not stop!
+                            @endif
+                        </h2>
                     </div>
 
                 </div>
