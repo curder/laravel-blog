@@ -23,16 +23,14 @@ APP_NAME="Laravel"
 APP_ENV=local
 APP_DEBUG=true
 APP_LOG_LEVEL=debug
-APP_URL=http://voyager.dev
+APP_URL=http://laravel-blog.dev
 ```
-
-> import `databases\20170827.sql` into your database 
+> import `databases\somedata.sql` into your database 
 > and the manager URL is `/admin`
 
 ```
 composer install
 ```
-
 ```
 php artisan voyager:install
 php artisan serve
@@ -40,6 +38,27 @@ php artisan serve
 
 UserName: `admin@admin.com`
 Password: `password`
+
+## Configure Algolia for search
+
+Login the [algolia.com](https://www.algolia.com/),and find under info.
+
+```
+# algolia key
+ALGOLIA_APP_ID=
+ALGOLIA_SECRET=
+ALGOLIA_SEARCH=
+```
+
+* Import the given model into the search index
+```
+php artisan scout:import "App\Post"
+```
+
+* Flush all of the model's records from the index
+```
+php artisan scout:flush "App\Post"
+```
 
 ## Optional
 

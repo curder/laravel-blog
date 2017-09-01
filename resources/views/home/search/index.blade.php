@@ -1,6 +1,5 @@
 @extends('home.layouts.app')
 @section('page_title','Search')
-@section('search')@stop
 @section('content')
     <div class="container">
         <ais-index app-id="{{ config('scout.algolia.id') }}"
@@ -37,7 +36,7 @@
                                     <p>
                                         <strong>@{{ result.title }}</strong>
                                         <br>
-                                        @{{ result.meta_description }}
+                                        <small>@{{ result.excerpt }}</small>
                                     </p>
                                 </div>
                                 <nav class="level is-mobile">
@@ -50,7 +49,7 @@
                                         </div>
                                     </div>
                                     <div class="level-right">
-                                        <a :href="result.url">Show</a>
+                                        <a :href="result.url">More</a>
                                     </div>
                                 </nav>
                             </div>
