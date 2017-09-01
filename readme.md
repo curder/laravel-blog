@@ -3,6 +3,10 @@
 ```
 git clone git@github.com:curder/laravel-blog.git
 ```
+Go to the project base directory and run this command.
+```
+composer install
+```
 
 ## Configure
 ```
@@ -11,13 +15,15 @@ cp .env.example .env
 php artisan key:generate
 ```
 and modify the `.env` file with your own config.
+if you use MySQL Server ,you can use 
+`grant all privileges on dbUser.* to dbUser@localhost identified by 'dbPassword'` to create a new user.
 ```
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=DBName
-DB_USERNAME=DBuser
-DB_PASSWORD=DBpassword
+DB_DATABASE=dbName
+DB_USERNAME=dbUser
+DB_PASSWORD=dbPassword
 
 APP_NAME="Laravel"
 APP_ENV=local
@@ -25,12 +31,10 @@ APP_DEBUG=true
 APP_LOG_LEVEL=debug
 APP_URL=http://laravel-blog.dev
 ```
-> import `databases\somedata.sql` into your database 
+> import `databases\blog.sql` into your database 
 > and the manager URL is `/admin`
 
-```
-composer install
-```
+
 ```
 php artisan voyager:install
 php artisan serve
